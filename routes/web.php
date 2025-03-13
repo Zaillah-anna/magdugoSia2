@@ -1,6 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController; 
+
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +17,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/inventory', [UserController::class, 'getInventorywithProduct']);
+Route::get('/product', [UserController::class, 'getProducts']);
+Route::get('/users', [UserController::class, 'getUsers']);
+Route::get('/activity_logs', [UserController::class, 'getActivityLogs']);
+
